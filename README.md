@@ -1,6 +1,6 @@
 ## Firmware Flasher for Oneplus 8t and 9r
 
-# 21-Jan-2023 v1.0
+# 22-Jan-2023 v1.0
  - Initial Version of the updated flashable Firmware script for Oneplus 8t and 9r
  - OOS13 Firmware files are using abl.img from OOS13 F10 to remove the yellow bootloader message
  - Flasher should support Firmware flashing from all OOS12 and OOS13 Versions (OOS11 is not supported now!)
