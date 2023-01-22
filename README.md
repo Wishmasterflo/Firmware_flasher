@@ -1,11 +1,11 @@
-## Firmware Flasher for Oneplus 8t and 9r
+## Firmware Flasher for Oneplus 8 series and 9r
 
 # 22-Jan-2023 v1.0
- - Initial Version of the updated flashable Firmware script for Oneplus 8t and 9r
+ - Initial Version of the updated flashable Firmware script for Oneplus 8 series and 9r
  - OOS13 Firmware files are using abl.img from OOS13 F10 to remove the yellow bootloader message
  - Flasher should support Firmware flashing from all OOS12 and OOS13 Versions (OOS11 is not supported now!)
- - added automatic DDR RAM type detection
- - Flasher will terminate if it can not detect the correct RAM type by some reason
+ - added automatic DDR RAM type detection (for Oneplus 8t/9r)
+ - Flasher will terminate if it can not detect the correct RAM type for some reason
  - added a check that the Firmware flasher is flashed from recovery only
  - added device check that the Frimware is flashed on a supported device
  - Updated info that the Firmware is getting flashed to both slots (A and B)
