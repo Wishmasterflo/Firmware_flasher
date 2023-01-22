@@ -21,6 +21,7 @@ The flasher will terminate if it can not detect the RAM type or the correct Devi
 any more bricks due to wrongly flashed Firmware for DDR RAM type. 
 Since the command I use for detecting the RAM type is only working from OOS12 and OOS13 base the flasher will not work when trying to flash a new Firmware from OOS11 base!
 
+Firmware download with updated Firmware flasher: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
 
 ##### Credits
 - Nixsuki for the initial Version of the Oneplus Flashable Firmwares
