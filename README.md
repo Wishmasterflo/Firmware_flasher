@@ -1,4 +1,8 @@
-## Firmware Flasher for Oneplus 8 series and Oneplus 9 series
+## Firmware Flasher script for Oneplus 8 series and Oneplus 9 series
+
+# 25-Jan-2023 v1.1
+ - Fixed typo in the flashing script
+ - Cleaned up the flashing script
 
 # 22-Jan-2023 v1.0
  - Initial Version of the updated flashable Firmware script for Oneplus 8 series and Oneplus 9 series
@@ -21,7 +25,7 @@ The flasher will terminate if it can not detect the RAM type or the correct Devi
 any more bricks due to wrongly flashed Firmware for DDR RAM type. 
 Since the command I use for detecting the RAM type is only working from OOS12 and OOS13 base the flasher will not work when trying to flash a new Firmware from OOS11 base!
 
-Firmware download with updated Firmware flasher: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
+Firmware download with updated Firmware flasher script: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
 
 The firmware can just be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from custom recovery.
 
