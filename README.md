@@ -1,5 +1,12 @@
 ## Firmware Flasher script for Oneplus 8 series and Oneplus 9 series
 
+# 01-Feb-2023 v1.2
+ - Added prompt to continue or cancel the Firmware flashing
+ - Removed RAM check for all other devices (exept OP8t and OP9r) 
+ - Added RAM check for OP8t and 9r on OOS11 as well
+ - Make flashing of Modem.img optional
+ - Some small adjustments to the flashing script
+
 # 25-Jan-2023 v1.1
  - Fixed typo in the flashing script
  - Cleaned up the flashing script
