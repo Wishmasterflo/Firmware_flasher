@@ -39,6 +39,7 @@ Firmware download with updated Firmware flasher script: https://mega.nz/folder/W
 The firmware can be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from a custom recovery.
 It gets flashed to both slots so no need to flash it twice!
 
+
 ##### Credits
 - Nixsuki for the initial Version of the Oneplus Flashable Firmwares
 - OPTeam for the Repo of OxygenOS builds
