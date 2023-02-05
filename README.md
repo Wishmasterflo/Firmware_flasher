@@ -32,9 +32,12 @@ The flasher will terminate if it can not detect the RAM type or the correct Devi
 any more bricks due to wrongly flashed Firmware for DDR RAM type. 
 Since the command I use for detecting the RAM type is only working from OOS12 and OOS13 base the flasher will not work when trying to flash a new Firmware from OOS11 base!
 
+# Download
 Firmware download with updated Firmware flasher script: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
 
-The firmware can just be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from custom recovery.
+# Flashing procedure
+The firmware can be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from a custom recovery.
+It gets flashed to both slots so no need to flash it twice!
 
 ##### Credits
 - Nixsuki for the initial Version of the Oneplus Flashable Firmwares
