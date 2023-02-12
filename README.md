@@ -1,4 +1,4 @@
-## Firmware Flasher script for Oneplus 8 series and Oneplus 9 series
+# Firmware Flasher script for Oneplus 8 series and Oneplus 9 series
 
 Since the Oneplus 8t and 9r can have different RAM types (DDR4 or DDR5) you always had to check your RAM
 type before flashing a new Firmware.
