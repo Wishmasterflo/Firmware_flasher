@@ -12,10 +12,10 @@ The flasher will terminate if it can not detect the RAM type or the correct Devi
 Firmware download with updated Firmware flasher script: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
 
 Device type and region
-XXX0 = China
-XXX1 = India
-XXX3 = Europe
-XXX5 = Global/NA
+- XXX0 = China
+- XXX1 = India
+- XXX3 = Europe
+- XXX5 = Global/NA
 
 # Flashing procedure
 The firmware zip file can be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from a custom recovery.
