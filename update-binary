@@ -1,0 +1,173 @@
+#!/sbin/sh
+# Functions needed early
+ui_print() { $BOOTMODE && echo "$1" || echo -e "ui_print $1\nui_print" >> $OUTFD; }
+abort() { ui_print "$1"; ui_print " "; exit 1; }
+
+# Set vars
+OUTFD=/proc/self/fd/$2
+ZIPFILE="$3"
+tmp=/dev/tmp
+
+chooseport() {
+  while true; do
+    getevent -lc 1 2>&1 | grep VOLUME | grep " DOWN" > $tmp/events
+    if (`cat $tmp/events 2>/dev/null | grep VOLUME >/dev/null`); then
+      break
+    fi
+  done
+  if (`cat $tmp/events 2>/dev/null | grep VOLUMEUP >/dev/null`); then
+    return 0
+  else
+    return 1
+  fi
+}
+
+# detect Magisk Manager/booted flashing
+ps | grep zygote | grep -v grep >/dev/null && BOOTMODE=true || BOOTMODE=false
+$BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -v grep >/dev/null && BOOTMODE=true
+$BOOTMODE && abort "You need to flash this Firmware from recovery!"
+
+ui_print "*******************************************"
+ui_print "* Oneplus 8t EU KB2003 Firmware Flasher   *"
+ui_print "*                                         *"
+ui_print "*        v1.2 by Wishmasterflo            *"
+ui_print "*******************************************"
+
+set -x
+rm -rf $tmp
+mkdir -p $tmp
+unzip -o "$ZIPFILE" -d $tmp || abort "Failed to extract zip!"
+sleep 1
+
+# Device check
+supported=false
+ui_print "Checking device compatibility..."
+for i in OnePlus8T OnePlus 8T opkona KB2003; do
+  for prop in "ro.product.device" "ro.build.product" "ro.product.system.model"; do
+    if [ "$(getprop $prop)" == "$i" ]; then
+      ui_print "- Supported Device detected: $i"
+      supported=true
+      break 2
+    fi
+  done
+done
+$supported || abort "- Unsupported device! Aborting!"
+
+ddr4=false
+ddr5=false
+ui_print "Checking RAM type..."
+if [ "$(cat /proc/devinfo/ddr_type | grep -i DDR4)" ]; then
+  ddr4=true
+  ui_print "- DDR4 RAM detected!"
+elif [ "$(cat /proc/devinfo/ddr_type | grep -i DDR5)" ]; then
+  ddr5=true
+  ui_print "- DDR5 RAM detected!"
+elif [ "$(getprop ro.boot.ddr_type | grep -i 0)" ]; then
+  ddr4=true
+  ui_print "- DDR4 RAM detected!"
+elif [ "$(getprop ro.boot.ddr_type | grep -i 1)" ]; then
+  ddr5=true
+  ui_print "- DDR5 RAM detected!"
+else  ui_print "- Could not detect RAM type. Flashing aborted!" 
+  exit 0
+fi
+
+ui_print " "
+ui_print "****************************"
+ui_print "Device: $i"
+ui_print "Region: EU"
+ui_print "Firmware flash: OOS13 F15"
+ui_print "****************************"
+ui_print " "
+ui_print "Continue? Vol+ yes, Vol- no"
+chooseport && flash=true|| exit 0
+ui_print "Flashing OOS13 F15 Firmware to both slots A and B..."
+ui_print " "
+modem=false
+ui_print "Do you want to update Modem.img? Vol+ yes, Vol- no"
+chooseport && modem=true || modem=false
+if [ "$modem" = "true" ]; then
+ ui_print "Updating modem..."
+#dd if=/dev/tmp/firmware-update/modem.img of=/dev/block/bootdevice/by-name/modem_a bs=4k
+#dd if=/dev/tmp/firmware-update/modem.img of=/dev/block/bootdevice/by-name/modem_b bs=4k
+fi
+ui_print "Updating abl..."
+#dd if=/dev/tmp/firmware-update/abl.img of=/dev/block/bootdevice/by-name/abl_a bs=4k
+#dd if=/dev/tmp/firmware-update/abl.img of=/dev/block/bootdevice/by-name/abl_b bs=4k
+ui_print "Updating aop..."
+#dd if=/dev/tmp/firmware-update/aop.img of=/dev/block/bootdevice/by-name/aop_a bs=4k
+#dd if=/dev/tmp/firmware-update/aop.img of=/dev/block/bootdevice/by-name/aop_b bs=4k
+ui_print "Updating bluetooth..."
+#dd if=/dev/tmp/firmware-update/bluetooth.img of=/dev/block/bootdevice/by-name/bluetooth_a bs=4k
+#dd if=/dev/tmp/firmware-update/bluetooth.img of=/dev/block/bootdevice/by-name/bluetooth_b bs=4k
+ui_print "Updating cmnlib..."
+#dd if=/dev/tmp/firmware-update/cmnlib.img of=/dev/block/bootdevice/by-name/cmnlib_a bs=4k
+#dd if=/dev/tmp/firmware-update/cmnlib.img of=/dev/block/bootdevice/by-name/cmnlib_b bs=4k
+ui_print "Updating cmnlib64..."
+#dd if=/dev/tmp/firmware-update/cmnlib64.img of=/dev/block/bootdevice/by-name/cmnlib64_a bs=4k
+#dd if=/dev/tmp/firmware-update/cmnlib64.img of=/dev/block/bootdevice/by-name/cmnlib64_b bs=4k
+ui_print "Updating devcfg..."
+#dd if=/dev/tmp/firmware-update/devcfg.img of=/dev/block/bootdevice/by-name/devcfg_a bs=4k
+#dd if=/dev/tmp/firmware-update/devcfg.img of=/dev/block/bootdevice/by-name/devcfg_b bs=4k
+ui_print "Updating dsp..."
+#dd if=/dev/tmp/firmware-update/dsp.img of=/dev/block/bootdevice/by-name/dsp_a bs=4k
+#dd if=/dev/tmp/firmware-update/dsp.img of=/dev/block/bootdevice/by-name/dsp_b bs=4k
+ui_print "Updating featenabler..."
+#dd if=/dev/tmp/firmware-update/featenabler.img of=/dev/block/bootdevice/by-name/featenabler_a bs=4k
+#dd if=/dev/tmp/firmware-update/featenabler.img of=/dev/block/bootdevice/by-name/featenabler_b bs=4k
+ui_print "Updating hyp..."
+#dd if=/dev/tmp/firmware-update/hyp.img of=/dev/block/bootdevice/by-name/hyp_a bs=4k
+#dd if=/dev/tmp/firmware-update/hyp.img of=/dev/block/bootdevice/by-name/hyp_b bs=4k
+ui_print "Updating imagefv..."
+#dd if=/dev/tmp/firmware-update/imagefv.img of=/dev/block/bootdevice/by-name/imagefv_a bs=4k
+#dd if=/dev/tmp/firmware-update/imagefv.img of=/dev/block/bootdevice/by-name/imagefv_b bs=4k
+ui_print "Updating keymaster..."
+#dd if=/dev/tmp/firmware-update/keymaster.img of=/dev/block/bootdevice/by-name/keymaster_a bs=4k
+#dd if=/dev/tmp/firmware-update/keymaster.img of=/dev/block/bootdevice/by-name/keymaster_b bs=4k
+ui_print "Updating logo..."
+#dd if=/dev/tmp/firmware-update/logo.img of=/dev/block/bootdevice/by-name/logo_a bs=4k
+#dd if=/dev/tmp/firmware-update/logo.img of=/dev/block/bootdevice/by-name/logo_b bs=4k
+ui_print "Updating mdm_oem_stanvbk..."
+#dd if=/dev/tmp/firmware-update/mdm_oem_stanvbk.img of=/dev/block/bootdevice/by-name/mdm_oem_stanvbk bs=4k
+ui_print "Updating multiimgoem..."
+#dd if=/dev/tmp/firmware-update/multiimgoem.img of=/dev/block/bootdevice/by-name/multiimgoem_a bs=4k
+#dd if=/dev/tmp/firmware-update/multiimgoem.img of=/dev/block/bootdevice/by-name/multiimgoem_b bs=4k
+ui_print "Updating qupfw..."
+#dd if=/dev/tmp/firmware-update/qupfw.img of=/dev/block/bootdevice/by-name/qupfw_a bs=4k
+#dd if=/dev/tmp/firmware-update/qupfw.img of=/dev/block/bootdevice/by-name/qupfw_b bs=4k
+ui_print "Updating spunvm..."
+#dd if=/dev/tmp/firmware-update/spunvm.img of=/dev/block/bootdevice/by-name/spunvm bs=4k
+ui_print "Updating storsec..."
+#dd if=/dev/tmp/firmware-update/storsec.img of=/dev/block/bootdevice/by-name/storsec_a bs=4k 
+#dd if=/dev/tmp/firmware-update/storsec.img of=/dev/block/bootdevice/by-name/storsec_b bs=4k
+ui_print "Updating tz..."
+#dd if=/dev/tmp/firmware-update/tz.img of=/dev/block/bootdevice/by-name/tz_a bs=4k
+#dd if=/dev/tmp/firmware-update/tz.img of=/dev/block/bootdevice/by-name/tz_b bs=4k
+ui_print "Updating uefisecapp..."
+#dd if=/dev/tmp/firmware-update/uefisecapp.img of=/dev/block/bootdevice/by-name/uefisecapp_a bs=4k
+#dd if=/dev/tmp/firmware-update/uefisecapp.img of=/dev/block/bootdevice/by-name/uefisecapp_b bs=4k
+if [ "$ddr4" = "true" ]; then
+   ui_print "Updating xbl for DDR4 RAM..."
+   #dd if=/dev/tmp/firmware-update/xbl.img of=/dev/block/bootdevice/by-name/xbl_a bs=4k
+   #dd if=/dev/tmp/firmware-update/xbl.img of=/dev/block/bootdevice/by-name/xbl_b bs=4k
+   ui_print "Updating xbl_config for DDR4 RAM..."
+   #dd if=/dev/tmp/firmware-update/xbl_config.img of=/dev/block/bootdevice/by-name/xbl_config_a bs=4k
+   #dd if=/dev/tmp/firmware-update/xbl_config.img of=/dev/block/bootdevice/by-name/xbl_config_b bs=4k 
+elif  [ "$ddr5" = "true" ]; then
+   ui_print "Updating xbl for DDR5 RAM..."
+   #dd if=/dev/tmp/firmware-update/xbl_lp5.img of=/dev/block/bootdevice/by-name/xbl_a bs=4k
+   #dd if=/dev/tmp/firmware-update/xbl_lp5.img of=/dev/block/bootdevice/by-name/xbl_b bs=4k
+   ui_print "Updating xbl_config for DDR5 RAM..."
+   #dd if=/dev/tmp/firmware-update/xbl_config_lp5.img of=/dev/block/bootdevice/by-name/xbl_config_a bs=4k
+   #dd if=/dev/tmp/firmware-update/xbl_config_lp5.img of=/dev/block/bootdevice/by-name/xbl_config_b bs=4k
+fi
+rm -rf /dev/tmp
+ui_print " "
+ui_print "Firmware flashing completed!"
+ui_print "If you want to flash a new ROM do that now before rebooting."
+ui_print "                ___  "
+ui_print "              _/___\_"
+ui_print "              ( @ @ )"
+ui_print "**********o00o**(_)**o00o**********"
+
+exit 0
