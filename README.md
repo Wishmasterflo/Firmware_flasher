@@ -18,8 +18,12 @@ Device type and region
 - XXX5 = Global/NA
 
 # Flashing procedure
-The firmware zip file can be flashed from a custom recovery via adb sideload or flash directly from Storage on the Phone from a custom recovery.
+Download the firmware zip file for your Device and Region from the download link.
+The firmware zip file can be flashed from a custom recovery via adb sideload or flash it directly from Storage on the Phone from a custom recovery.
 It gets flashed to both slots so no need to flash it twice!
+Disable your Virusscanner on Windows before adb sideloading the file!
+If you get an error Message that your device is not supported and you know you have the correct Firmware file for your device please try with another
+recovery (I always recommend Orangefox recovery if avbailable for your device).
 
 # Features
  - automatic detection of RAM type
