@@ -1,4 +1,4 @@
-# Firmware Flasher script for Oneplus 8 series and Oneplus 9 series
+# Firmware Flasher script for Oneplus devices
 
 Since the Oneplus 8t and 9r can have different RAM types (DDR4 or DDR5) you always had to check your RAM
 type before flashing a new Firmware.
@@ -33,6 +33,12 @@ recovery (I always recommend Orangefox recovery if avbailable for your device).
  - Choice to Update modem.img or not
 
 # Supported Devices
+ - Oneplus 6 (enchilada)
+ - Oneplus 6t (fajita)
+ - Oneplus 7 GM190X (guacamoleb)
+ - Oneplus 7 Pro GM191X (guacamole)
+ - Oneplus 7t HD190X (hotdog)
+ - Oneplus 7t Pro HD191X (hotdogb)
  - Oneplus 8 IN201X (instantnoodle)
  - Oneplus 8t KB200X (kebab)
  - Oneplus 8 Pro IN202X (instantnoodlep)
