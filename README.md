@@ -23,14 +23,14 @@ The firmware zip file can be flashed from a custom recovery via adb sideload or 
 It gets flashed to both slots so no need to flash it twice!
 Disable your Virusscanner on Windows before adb sideloading the file!
 If you get an error Message that your device is not supported and you know you have the correct Firmware file for your device please try with another
-recovery (I always recommend Orangefox recovery if avbailable for your device).
+recovery (I always recommend Orangefox recovery if avbailable for your device as it will set the device name correctly in recovery).
 
 # Features
  - automatic detection of RAM type
  - automatic detection of device type
  - The Firmware gets flashed to both A/B slots
  - For T-Mobile devices on OOS12/13 it will enable the Dual SIM feature
- - Choice to Update modem.img or not
+ - Choice to Update modem.img or not (in 90% of the cases you choose yes to update Modem)
 
 # Supported Devices
  - Oneplus 6 (enchilada)
@@ -65,7 +65,7 @@ recovery (I always recommend Orangefox recovery if avbailable for your device).
  - added automatic DDR RAM type detection (for Oneplus 8t/9r)
  - Flasher will terminate if it can not detect the correct RAM type for some reason
  - added a check that the Firmware flasher is flashed from recovery only
- - added device check that the Frimware is flashed on a supported device
+ - added device check that the Firmware is flashed on a supported device
  - Updated info that the Firmware is getting flashed to both slots (A and B)
 
 
