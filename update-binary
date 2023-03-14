@@ -30,7 +30,7 @@ $BOOTMODE && abort "You need to flash this Firmware from recovery!"
 ui_print "*******************************************"
 ui_print "* Oneplus 8t EU KB2003 Firmware Flasher   *"
 ui_print "*                                         *"
-ui_print "*        v1.2 by Wishmasterflo            *"
+ui_print "*        v1.3 by Wishmasterflo            *"
 ui_print "*******************************************"
 
 set -x
@@ -42,10 +42,10 @@ sleep 1
 # Device check
 supported=false
 ui_print "Checking device compatibility..."
-for i in OnePlus8T OnePlus 8T opkona KB2003; do
-  for prop in "ro.product.device" "ro.build.product" "ro.product.system.model"; do
+for i in 19805 20809; do
+  for prop in "ro.boot.prjname"; do
     if [ "$(getprop $prop)" == "$i" ]; then
-      ui_print "- Supported Device detected: $i"
+      ui_print "- Supported Device detected"
       supported=true
       break 2
     fi
@@ -74,7 +74,7 @@ fi
 
 ui_print " "
 ui_print "****************************"
-ui_print "Device: $i"
+ui_print "Device: Oneplus 8t"
 ui_print "Region: EU"
 ui_print "Firmware flash: OOS13 F15"
 ui_print "****************************"
