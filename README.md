@@ -47,6 +47,10 @@ recovery (I always recommend Orangefox recovery if avbailable for your device as
  - Oneplus 9 Pro LE212X (lemonadep)
 
 # Changelog
+# 14-Mar-2023 v1.3
+ - Changed device check method
+ - Cleaned up some old Firmware files to free up space on Mega
+
 # 01-Feb-2023 v1.2
  - Added prompt to continue or cancel the Firmware flashing
  - Removed RAM check for all other devices (exept OP8t and OP9r) 
