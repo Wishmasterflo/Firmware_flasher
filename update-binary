@@ -43,7 +43,7 @@ sleep 1
 supported=false
 ui_print "Checking device compatibility..."
 for i in 19805 20809; do
-  for prop in "ro.boot.prjname"; do
+ for prop in "ro.boot.prjname" "ro.boot.project_name"; do
     if [ "$(getprop $prop)" == "$i" ]; then
       ui_print "- Supported Device detected"
       supported=true
