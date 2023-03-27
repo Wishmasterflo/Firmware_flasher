@@ -1,15 +1,11 @@
-# Firmware Flasher script for Oneplus devices
+# Firmware Flasher for Oneplus devices
 
-Since the Oneplus 8t and 9r can have different RAM types (DDR4 or DDR5) you always had to check your RAM
-type before flashing a new Firmware.
-Flashing the wrong Firmware file with wrong DDR type could brick your phone and it can be a mess to get it working again.
-
-Now I built an updated Version of the Firmware Flasher which will automatically detect the RAM type of your device and flash the correct
+I built an updated Version of the Firmware Flasher which will automatically detect the RAM type of your device and flash the correct
 Firmware files, so no need anymore to check the DDR RAM type before, now you can just go ahead and flash the needed Firmware you want to flash.
 The flasher will terminate if it can not detect the RAM type or the correct Device for the Firmware you want to flash so it is quite safe now to use it and should not cause any more bricks due to wrongly flashed Firmware.
 
 # Download
-Firmware download with updated Firmware flasher script: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
+Firmware download with updated Firmware flasher: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
 
 Device type and region
 - XXX0 = China
@@ -18,12 +14,10 @@ Device type and region
 - XXX5 = Global/NA
 
 # Flashing procedure
-Download the firmware zip file for your Device and Region from the download link.
-The firmware zip file can be flashed from a custom recovery via adb sideload or flash it directly from Storage on the Phone from a custom recovery.
+Download the firmware zip file for your Device and Region from the download link above.
+The firmware zip file can be flashed from a custom recovery via adb sideload or it can be directly flashed from the Internal Storage on the Phone (using TWRP/Orangefox)
 It gets flashed to both slots so no need to flash it twice!
 Disable your Virusscanner on Windows before adb sideloading the file!
-If you get an error Message that your device is not supported and you know you have the correct Firmware file for your device please try with another
-recovery (I always recommend Orangefox recovery if avbailable for your device as it will set the device name correctly in recovery).
 
 # Features
  - automatic detection of RAM type
