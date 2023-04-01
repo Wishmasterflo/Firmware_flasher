@@ -23,8 +23,10 @@ Disable your Virusscanner on Windows before adb sideloading the file!
  - automatic detection of RAM type
  - automatic detection of device type
  - The Firmware gets flashed to both A/B slots
- - For T-Mobile devices on OOS12/13 it will enable the Dual SIM feature
- - Choice to Update modem.img or not (in 90% of the cases you choose yes to update Modem)
+ - For T-Mobile devices on OOS13 it will enable the Dual SIM feature (Oneplus 8/9 series)
+ - Choice to Update modem.img or not (in 90% of the cases you choose yes here to update Modem)
+   Only in some cases where you want to cross flash a different region Firmware it could be needed
+   not to Update the modem.img as otherwise you might not have all 5G bands available for that region.
 
 # Supported Devices
  - Oneplus 6 (enchilada)
@@ -39,7 +41,8 @@ Disable your Virusscanner on Windows before adb sideloading the file!
  - Oneplus 9 LE211X (lemonade)
  - Oneplus 9r LE210X (lemonades)
  - Oneplus 9 Pro LE212X (lemonadep)
-
+ - The T-Mobile devices are supported as well. For those you would flash the NA/Global Firmware
+ 
 # Changelog
 # 14-Mar-2023 v1.3
  - Changed device check method
