@@ -12,6 +12,7 @@ Device type and region
 - XXX1 = India
 - XXX3 = Europe
 - XXX5 = Global/NA
+- XXX7 = T-Mobile Version
 
 # Flashing procedure
 Download the firmware zip file for your Device and Region from the download link above.
