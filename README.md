@@ -19,6 +19,7 @@ Download the firmware zip file for your Device and Region from the download link
 The firmware zip file can be flashed from a custom recovery via adb sideload or it can be directly flashed from the Internal Storage on the Phone (using TWRP/Orangefox).
 It gets flashed to both slots so no need to flash it twice!
 Disable your Virusscanner on Windows before adb sideloading the file!
+The Firmware Flasher will not touch your data partition so it will not format or do anything to your Data.
 
 # Features
  - automatic detection of RAM type
