@@ -15,8 +15,9 @@ Device type and region
 - XXX7 = T-Mobile Version
 
 # Flashing procedure
-Download the firmware zip file for your Device and Region from the download link above.
+Download the firmware zip file for your Device and Region from the download link above. (use Standard download on Mega not download as ZIP!)
 The firmware zip file can be flashed from a custom recovery via adb sideload or it can be directly flashed from the Internal Storage on the Phone (using TWRP/Orangefox).
+It doesnt matter on which OOS Version you are or if you are on a custom ROM or Stock OOS, you can just flash or sideload the Firmware file.
 It gets flashed to both slots so no need to flash it twice!
 Disable your Virusscanner on Windows before adb sideloading the file!
 The Firmware Flasher will not touch your data partition so it will not format or do anything to your Data.
@@ -25,6 +26,7 @@ The Firmware Flasher will not touch your data partition so it will not format or
  - automatic detection of RAM type
  - automatic detection of device type
  - The Firmware gets flashed to both A/B slots
+ - Removes the yellow Bootloader message on all OOS13.x firmware files (on OP8 and OP9 series only)
  - For T-Mobile devices on OOS13 it will enable the Dual SIM feature (Oneplus 8/9 series)
  - Choice to Update modem.img or not (in 90% of the cases you choose yes here to update Modem)
    Only in some cases where you want to cross flash a different region Firmware it could be needed
@@ -74,6 +76,9 @@ The Firmware Flasher will not touch your data partition so it will not format or
  - added device check that the Firmware is flashed on a supported device
  - Updated info that the Firmware is getting flashed to both slots (A and B)
 
+# Donate
+Donate if you like my work. 
+https://www.paypal.com/paypalme/Wishmasterflo
 
 ##### Credits
 - Nixsuki for the initial Version of the Oneplus Flashable Firmwares
