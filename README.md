@@ -6,6 +6,7 @@ The flasher will terminate if it can not detect the RAM type or the correct Devi
 
 # Download
 Firmware download with updated Firmware flasher: https://mega.nz/folder/W7JhwTAT#Yu6cxqvJcAC28cy0m_kkQA
+(use Standard download on Mega not download as ZIP, because then you get a ZIP file inside the ZIP file!)
 
 Device type and region
 - XXX0 = China
