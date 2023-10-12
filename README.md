@@ -32,9 +32,7 @@ The Firmware Flasher will not touch your data partition so it will not format or
  - Choice to Update modem.img or not (in 90% of the cases you choose yes here to update Modem)
    Only in some cases where you want to cross flash a different region Firmware it could be needed
    not to Update the modem.img as otherwise you might not have all 5G bands available for that region.
-   FYI: It seems that the new Firmware for OP8T (F62/F63) is causing worse 3G/4G mobile Network speed compared to older F13/F15 Firmware. That
-   I got proven by many users now so the solution for that is to just flash the older F13/F15 Firmware, then flash the new F62/F63 Firmware and dont update the Modem.img file during update or use the Firmware file called F63_F15_modem which already is usinge the old Modem file!
-
+  
 # Supported Devices
  - Oneplus 6 (enchilada)
  - Oneplus 6t (fajita)
