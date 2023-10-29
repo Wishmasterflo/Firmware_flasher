@@ -46,7 +46,6 @@ The Firmware Flasher will not touch your data partition so it will not format or
  - Oneplus 9 LE211X (lemonade)
  - Oneplus 9r LE210X (lemonades)
  - Oneplus 9 Pro LE212X (lemonadep)
- - Oneplus 11 CPH244X (salami)
  - The T-Mobile devices are supported as well. For those you would flash the NA/Global Firmware
  
 # Changelog
