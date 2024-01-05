@@ -28,7 +28,7 @@ The Firmware Flasher will not touch your data partition so it will not format or
  - automatic detection of device type
  - The Firmware gets flashed to both A/B slots
  - Removes the yellow Bootloader message on all OOS13.x firmware files (on OP8 and OP9 series only)
- - For T-Mobile devices on OOS13 it will enable the Dual SIM feature (Oneplus 8/9 series)
+ - For T-Mobile devices on OOS13.x it will enable the Dual SIM feature (on OP8 and OP9 series only)
  - Choice to Update modem.img or not (in 90% of the cases you choose yes here to update Modem)
    Only in some cases where you want to cross flash a different region Firmware it could be needed
    not to Update the modem.img as otherwise you might not have all 5G bands available for that region.
